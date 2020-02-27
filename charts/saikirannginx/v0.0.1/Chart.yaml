@@ -1,0 +1,13 @@
+name: saikirannginx
+home: https://github.com/krishnakiran8684/saikirannginx
+icon: 
+version: 0.0.1
+appVersion: latest
+description: 'A project for krishnakiran8684s-project'
+keywords:
+  - saikirannginx
+sources:
+  - https://github.com/krishnakiran8684/saikirannginx
+maintainers:
+  - name: 'Saikiran'
+    email: krishnakiran8684@gmail.com

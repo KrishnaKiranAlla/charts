@@ -1,0 +1,26 @@
+{{- if (and .Values.config.postgres.internal .Values.config.pgadmin.enabled) }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "saikirannginx.fullname" . }}-pgadmin
+  labels:
+    app: {{ template "saikirannginx.name" . }}-pgadmin
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  servers.json: |
+    {
+      "Servers": {
+        "1": {
+          "Name": "{{ template "saikirannginx.fullname" . }}-postgres",
+          "Group": "Servers",
+          "Port": 5432,
+          "Username": "postgres",
+          "Host": "{{ template "saikirannginx.fullname" . }}-postgres",
+          "SSLMode": "prefer",
+          "MaintenanceDB": "postgres"
+        }
+      }
+    }
+{{- end }}
